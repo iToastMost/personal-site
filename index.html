@@ -1,131 +1,128 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Brandon Hayes Website</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <meta charset="UTF-8">
+  <title>Brandon Hayes | Software Engineer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 </head>
-
 <body>
 
-<!-- title -->
-<section id="title" class="gradient-background">
-    <div class="px-4 py-5 text-center">
-        <h1 class="display-5 fw-bold text-body-emphasis">I'm Brandon</h1>
-        <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">Software Engineer and Game Developer</p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"></div>
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="https://itoastmost.itch.io/" target="_blank" class="nav-link px-2 text-body-secondary">itch.io</a></li>
-            <li class="nav-item"><a href="https://www.linkedin.com/in/brandon-hayes-726a7b253/" target="_blank" class="nav-link px-2 text-body-secondary">LinkedIn</a></li>
-            <li class="nav-item"><a href="https://www.instagram.com/hayesb94/" target="_blank" class="nav-link px-2 text-body-secondary">Instagram</a></li>
-            <li class="nav-item"><a href="mailto:brandonleehayes822@gmail.com">brandonleehayes822@gmail.com</a></li>
-          </ul>
-    </div>
+<!-- Hero -->
+<section id="hero" class="gradient-background text-center d-flex flex-column justify-content-center align-items-center vh-100">
+  <h1 class="display-3 fw-bold">Brandon Hayes</h1>
+  <p class="lead">Software Engineer • Game Developer</p>
+  <div class="mt-4">
+    <a href="#projects" class="btn btn-primary btn-lg mx-2">View Projects</a>
+    <a href="resume.html" class="btn btn-outline-light btn-lg mx-2">Resume</a>
+  </div>
+  <div class="mt-5">
+    <a href="https://itoastmost.itch.io/" target="_blank" class="mx-2">itch.io</a>
+    <a href="https://www.linkedin.com/in/brandon-hayes-726a7b253/" target="_blank" class="mx-2">LinkedIn</a>
+    <a href="mailto:brandonleehayes822@gmail.com" class="mx-2">Email</a>
+  </div>
+  <!-- About -->
+<section id="about" class="py-5">
+  <div class="container text-center">
+    <img class="profile-img rounded-circle mb-4" src="./images/me.jpg" alt="Profile picture" width="160">
+    <h2>Hello!</h2>
+    <p class="lead mx-auto col-lg-8">
+      I’m a developer who blends creativity with problem-solving. Whether I’m designing a game, refining an app, or experimenting with new ideas, I aim to build software that’s engaging and practical. And yes — coffee is definitely part of the process.
+    </p>
   </div>
 </section>
-
-<!-- about me -->
- <!--
-<section id="about-me">
-    <div class="my-5">
-        <div class="p-5 text-center bg-body-tertiary">
-            <div class="container py-5">
-                <img class="profile-img mx-auto mb-4" src="./images/PXL_20221011_172459229.jpg" alt="">
-                <h1 class="text-body-emphasis">Hello!</h1>
-                <p class="col-lg-8 mx-auto lead">
-                   I am a developer who has made various game projects. I love making music, puzzles, developing games and coffee (to get me through it all)!
-                </p> 
-            </div>
-
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-3 col-sm-12">
-                        <a href="resume.html">Resume</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-  </div>
-</section>
--->
-
-<!-- skills -->
-<section id="skills">
-    <div class="parent my-5">
-        <h2 class="skill-header">My skills</h2>
-    <div class="skill-container">
-        <div class="skill-games my-1">
-            <img id="skill-img" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original-wordmark.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-plain.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-plain.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-plain.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original-wordmark.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodemon/nodemon-original.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/notion/notion-original.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oauth/oauth-original.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original-wordmark.svg" />
-            <img id="skill-img"  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unrealengine/unrealengine-original-wordmark.svg" />
-        </div>
-</div>
 </section>
 
-<!-- contact -->
-<section id="projects">
-    <div class="contact-me text-center project">
-      
-        <div class="project">
-        <h2>Projects</h2>
-        <hr />
-        <h3>Retro Blog Website</h3>
-        <img src="./images/BlogSite.PNG">
-        <p> A retro blogging website making use of JavaScript, HTML, CSS and RESTful API to add, remove and edit blog posts </p>
-        <a href="https://github.com/iToastMost/Web-Dev-2024/tree/main/Capstone%2B3%2BBlog%2BWebsite"> See Code on GitHub </a>
-       </div> 
-
-       <div class="project">
-        <h3>Random Musuem Art Generator</h3>
-        <img src="./images/ArtAPI.PNG">
-        <p> Pull random pieces of art from The Metropolitan Musuem of Art using their API. This project makes use of HTML, CSS, JavaScript, Node.js, Express.js as well as demonstrates the use of RESTful services. </p>
-        <a href="https://github.com/iToastMost/Web-Dev-2024/tree/main/Capstone%2B4%2BUsing%2BA%2BPublic%2BAPI"> See Code on GitHub </a>
-        <hr />
-       </div> 
-    </div>
-</section>
-
-<!-- contact -->
-<section id="contact" class="gradient-background">
-    <div class="contact-me text-center">
-        <h2>Contact Me!</h2>
-        <p>Love games, coffee or puzzles? Get in touch!</p>
-        <a href="mailto:brandonleehayes822@gmail.com">brandonleehayes822@gmail.com</a>
-    </div>
-</section>
-
-<!-- footer -->
-<section id="footer">
-    <div class="container">
-        <footer class="py-3 my-4">
-          <p class="text-center text-body-secondary">© Brandon Hayes</p>
-        </footer>
+<!-- Skills -->
+<section id="skills" class="py-5 bg-body-tertiary">
+  <div class="container text-center">
+    <h2 class="mb-4">Skills</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-3 col-6 mb-4">
+        <i class="devicon-java-plain colored skill-icon"></i>
+        <p>Java</p>
       </div>
+      <div class="col-md-3 col-6 mb-4">
+        <i class="devicon-csharp-plain colored skill-icon"></i>
+        <p>C# / Unity</p>
+      </div>
+      <div class="col-md-3 col-6 mb-4">
+        <i class="devicon-react-original colored skill-icon"></i>
+        <p>React</p>
+      </div>
+      <div class="col-md-3 col-6 mb-4">
+        <i class="devicon-nodejs-plain colored skill-icon"></i>
+        <p>Node.js</p>
+      </div>
+      <div class="col-md-3 col-6 mb-4">
+        <i class="devicon-postgresql-plain colored skill-icon"></i>
+        <p>PostgreSQL</p>
+      </div>
+      <div class="col-md-3 col-6 mb-4">
+        <i class="devicon-git-plain colored skill-icon"></i>
+        <p>Git / GitHub</p>
+      </div>
+    </div>
+  </div>
 </section>
-</body>
 
+<!-- Projects -->
+<section id="projects" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Projects</h2>
+    <div class="row g-4">
+      
+      <div class="col-md-6">
+        <div class="card project-card h-100 shadow-sm">
+          <img src="./images/Audiobook.png" class="card-img-top" alt="Blog project">
+          <div class="card-body">
+            <h5 class="card-title">Night Owl Audiobook Player</h5>
+            <p class="card-text">A free Android application built with Java and XML utilizing Android's MediaPlayer API for playing audiobooks with premium features such as adjustable playback speed.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.CheekyLittleApps.audioplayer&hl=en" class="btn btn-outline-primary" target="_blank">Google Play Store</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card project-card h-100 shadow-sm">
+          <img src="./images/BlogSite.PNG" class="card-img-top" alt="Blog project">
+          <div class="card-body">
+            <h5 class="card-title">Retro Blog Website</h5>
+            <p class="card-text">A retro blogging website built with JavaScript, HTML, CSS, and RESTful APIs for adding, editing, and deleting blog posts.</p>
+            <a href="https://github.com/iToastMost/Web-Dev-2024/tree/main/Capstone%2B3%2BBlog%2BWebsite" class="btn btn-outline-primary" target="_blank">View Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card project-card h-100 shadow-sm">
+          <img src="./images/ArtAPI.PNG" class="card-img-top" alt="Art generator project">
+          <div class="card-body">
+            <h5 class="card-title">Museum Art Generator</h5>
+            <p class="card-text">Pulls random art from The Met Museum’s API using Node.js, Express, and JavaScript. Demonstrates RESTful API integration.</p>
+            <a href="https://github.com/iToastMost/Web-Dev-2024/tree/main/Capstone%2B4%2BUsing%2BA%2BPublic%2BAPI" class="btn btn-outline-primary" target="_blank">View Code</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-5 gradient-background text-center text-light">
+  <div class="container">
+    <h2>Let’s Connect</h2>
+    <p class="lead">Love games, puzzles, or coffee? Get in touch!</p>
+    <a href="mailto:brandonleehayes822@gmail.com" class="btn btn-light btn-lg mt-3">Email Me</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-4 bg-dark text-center text-secondary">
+  <p>© 2025 Brandon Hayes</p>
+</footer>
+
+</body>
 </html>
