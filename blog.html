@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Human Resources Devlog</title>
+
+<style>
+body {
+    margin: 0;
+    background-color: #111;
+    color: #e6e6e6;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 60px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #333;
+    color: #ffffff;
+}
+
+h2 {
+    margin-top: 60px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #333;
+    color: #ffffff;
+}
+
+p {
+    margin: 20px 0;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    margin: 40px 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+code {
+    background: #1e1e1e;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Creating A Fixed Camera Survival Horror Game With Godot!</h1>
+<div class="container">
+
+<div class="video-container">
+<iframe allowfullscreen frameborder="0" src="https://www.youtube.com/embed/PFlu1FayE2w"></iframe>
+</div>
+
+<p>I've always wanted to make a fixed camera survival horror game in the vein of classic games such as Resident Evil and Silent Hill.&nbsp;</p>
+<p>I originally started a test project in Unity but have since moved to Godot using C# over GDScript as C# was my first coding language and where I feel most comfortable.</p>
+<p>While I am wearing quite a few hats&nbsp;and essentially solo developing this game I am quite lucky that my fiancée is a super talented artist and is incredibly good with Blender. As of right now she is making all the assets for the game by hand. I have to say the Blender -&gt; Godot pipeline is really enjoyable to work with!</p>
+<p>The game is currently being called Perfect Evil (working title). It's a game where you are working your crappy retail job when all hell breaks loose. The beginning section of the game is navigating a retail store infested with hellish creatures of unknown origin. If this sounds familiar, congratulations you've worked in retail (or most public service work)! If you haven't figured it out by now, this is inspired by my first job.&nbsp;</p>
+<p>I've been working on this for a few months now and this is going to be more broad coverage of the systems I have developed rather than anything super in depth. I may go deeper on certain topics in future posts/videos.</p>
+<p>Something I wanted to keep in mind while developing this game was to make things modular. I don't want to have to rewrite code when I don't have to. For example everything in the game that can be interacted with inherits an Interact() function&nbsp;from an iInteractable interface. This allows me to label any node as interactable and not have to write code for every object that needs to be interacted with over and over in every script. This also allows the player script to check if something is iInteractable when the interact button is pressed and whether it should be ignored or call the Interact function on the interactable object.&nbsp;</p>
+<p>I think I've said "interact" enough so let's move on.</p>
+<p>Here's a&nbsp;brief overview of some of the&nbsp;features of the game:</p>
+
+<h2>Fixed Camera Angles:</h2>
+<p>This seems like the most obvious place to start. When you think classic Resident Evil the first thing your mind goes to is the cameras, or maybe the cheesy one liners. Either way you can't deny that when fixed cameras are done right, it's a vibe. That's something I'm realizing quickly is an art in itself. The larger an area is the harder it is to find good camera angles and you quickly end up with dozens of cameras in a single area.</p>
+<p>This won't be as much of an issue in most areas of the game. The idea is to have tight spaces for tense moments, which means smaller areas and less cameras but since the opening of the game takes place in a retail store and those tend to be quite large, designing the layout of the store is a bit tricky.</p>
+
+<div class="video-container">
+<iframe allowfullscreen frameborder="0" src="https://www.youtube.com/embed/ls1WRIHPFqs"></iframe>
+</div>
+
+<h2>Tank Controls +:</h2>
+<p>So maybe the first thing your mind went to wasn't fixed cameras or Jill Sandwiches, but tank controls! Well I've got that covered too!&nbsp;</p>
+<p>I want to push the idea of tank controls further in some fun ways which&nbsp;are currently under experimentation. My current idea is to have free aim while your are in an aim state. You can't move while aiming, you instead can aim your weapon freely, which will target enemy weak-points. These weak-points won't always be the head! Think if Dead Space had tank controls.</p>
+<p>I have some fun ideas for interactive reloading and melee combat in the future but for now I want to push Godot's new IK system to really polish free aiming + recoil + weapon sway.</p>
+<p>An idea I'm testing out is enemies have a very small chance to start bleeding to death as shown in the above clip. This is slightly inspired by critical hits in Resident Evil. In the clip the enemies have a 100% chance to bleed just to show it off, and the particles need some work but the idea is there.</p>
+
+<div class="video-container">
+<iframe allowfullscreen frameborder="0" src="https://www.youtube.com/embed/g0LSglAZtaE"></iframe>
+</div>
+
+<h2>The Door Animation:</h2>
+<p>Ok fine. The first thing you thought of when you heard Resident Evil wasn't the cameras or the one liners OR the tank controls... It was door animations!</p>
+<p>I have a love/hate relationship with the door animation. While it is incredibly iconic, it gets tedious very fast. In my opinion the tediousness comes from how slow the animation plays in the old games so it's my intention to make it faster, make it to where you can speed them up, make them&nbsp;skippable and also have an option to skip all door animations automatically.</p>
+<p>But I am putting in&nbsp;a lot of hard work here! You wouldn't skip them... would you?</p>
+
+<div class="video-container">
+<iframe allowfullscreen frameborder="0" src="https://www.youtube.com/embed/swUH-OrfNsA"></iframe>
+</div>
+
+<h2>Enemy AI - Enemy States and Enemy Navigation:</h2>
+<p>What's a survival horror game without enemies?</p>
+<p>Currently the enemy AI is pretty basic. They have four states - Wander, Chase, Attack and HitStun. These states are done by implemented a StateMachine that handles the enemies current state, and changes it accordingly.</p>
+<p>In their wander states they pick a random location within a radius of themself and use a NavAgent to path to that location.</p>
+<p>Their chase state takes the player location and uses their NavAgent to find the shortest path to the player. The chase state is triggered either by dealing damage to the enemy (shooting them from a distance) or walking in front of them. If you walk in front of the enemy a raycast3D triggers the chase state.</p>
+<p>The attack state is triggered where the player is in the chase state and close enough to the enemy while also being in front of them. This is currently done using a few raycast3Ds to check if the player is in front of them or not.&nbsp;</p>
+<p>The hit stun state is pretty simple, it plays a hit animation and takes the enemy out of their wander/chase/attack state until the animation is finished, then they resume chasing or attacking.</p>
+
+<h2>Player States:</h2>
+<p>Without going into a huge amount of detail here, the player states and state machine is&nbsp;much like the enemy states but there's a lot more of them.</p>
+<p>Some quick examples:</p>
+<p>Idle, Dialogue, Moving, Aiming etc etc.</p>
+<p>I may come back to this in a future devlog showing off how I handle my player's controls and states if there's enough interest.</p>
+
+<h2>Player Inventory:</h2>
+<p>Who doesn't love having a full inventory and not being able to loot that puzzle piece? You get to enjoy a nice long walk back to the safe room to drop off some of the stuff you've been hoarding. Take the scenic route while you're at it.</p>
+<p>My player inventory is pretty simple. It's an array&nbsp; of size 8 that holds the ID of the item you loot. Now when you select to use or equip an item that ID can be referenced by the Item Database so it knows what the item is and what should be triggered from using it.</p>
+<p>I've been bouncing back and forth between the classic inventory system where each slot is an item or something more like Resident Evil or Escape from Tarkov where you get to play inventory Tetris. Some people hate it but I&nbsp;love it. Coding it? I don't think I love it that much, but we'll see.</p>
+<p>To be honest, the system for the items themselves is more complicated than the inventory but let's not get ahead of ourselves.</p>
+<p>Oh we're going into items now? Let's get ahead of ourselves then!</p>
+
+<div class="video-container"><iframe width="500" height="281" src="//www.youtube.com/embed/I4kNz723Ap0" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h2>Items and Item Bases:</h2>
+<p>I REALLY had to think this one through. I had a whole whiteboard filled with how I was going to map this system out.</p>
+<p>In the beginning of this post I mentioned keeping things modular and reusable and this is probably the biggest example of how much planning a system like this can make things smoother for you down the line. If you don't have knowledge of or understand concepts like Abstract classes, polymorphism, inheritance and interfaces, I'm not going to get deep into all of that now. I'm not opposed to showing how I made this work for my game but I feel it's beyond the scope of this post.</p>
+<p>My idea was this:</p>
+<p>You have a base class for all items. This is an abstract class called ItemBase. ItemBase inherits from an iLootable interface.</p>
+<p>We break this down further into abstract classes for HealingItemBase, KeyItemBase, EquippableItemBase, AmmoItemBase and so on. All of the abstract classes are a subclass of ItemBase.&nbsp;</p>
+<p>This allows me to quickly create new items, whether they are for healing, new ammo types, new keys for locked doors and new weapons. All I need to do is slap the base item class on the item I make and fill in the exported variables and boom, I have a new item. Pretty much no extra code is needed.</p>
+<p>To go slightly deeper, there are iConsumable, iEquippable interfaces that are worked in to healing and equippable items as well.</p>
+<p>I can probably write an entire post just on this item system so I'll stop there.&nbsp;</p>
+
+<h2>Saving /Loading game and Zone Persistence - Serializing to JSON</h2>
+<p>Honestly, I&nbsp;thought this was going to be way tougher than it was. The game wasn't really feeling like a game when every time you load into an area all the items you looted respawned and the enemies you killed are up and walking around. All the doors you unlocked are now locked again.</p>
+<p>To solve this I made each area have a "ZoneState" which keeps track of what items and enemies are in that area. When you kill/loot items that is kept track of and marked in an array for that particular zone. Now when you leave and come back to that zone the code to load an area can check the zone state array to see what should and shouldn't be loaded in.</p>
+<p>This leads directly into saving and loading the game too. This really rounds out the feel and make it seem less like a project and more like a playable game. All you need to do after having the zone states is to serialize that information to JSON, as well as the players current zone, position, stats, inventory etc. Then when you load your game you pull all that information from the JSON file.</p>
+
+<div class="video-container"><iframe width="500" height="281" src="//www.youtube.com/embed/z9tocTvwmWs" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h2>The Death Screen:</h2>
+<p>Reloading the game's save or quitting to the main menu surprised me as not being as straightforward as I expected, I had saving/loading and zone persistence in the game after all.&nbsp; The issue here is the way I initially loaded the game assumed there was no environment or player, so calling load game or main menu from the death screen kept the current environment and player.&nbsp;</p>
+<p>To remedy this I simply had to change the load game code to function more like walking through a door to a new area, and reset the player stats while you're at it!</p>
+
+<div class="video-container"><iframe width="500" height="281" src="//www.youtube.com/embed/yv5uw-Bg2V8" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h2>Locked Doors:</h2>
+<p>This ties in with zone states and items. The doors have an exported variable KeyID on them. If it's set to 0 the door is unlocked, if it is greater than 0 then the players inventory is checked for that KeyID. If you have the key the zone state keeps track of the door being unlocked that same way it checks if it should load in enemies and items.</p>
+
+<div class="video-container"><iframe allowfullscreen="" frameborder="0" src="//www.youtube.com/embed/3bHZz0O1Qew" height="281" width="500"></iframe></div>
+
+<h2>Dialogue:</h2>
+<p>Dialogue is very very early in development and the system is not the greatest, but it doesn't look terrible! I know there's addons for dialogue but I enjoy building systems myself.&nbsp;
+</p>
+<p>I'm going for a kind of Animal Crossing style here (how do we go from Survival Horror to Animal Crossing?!?) where the letters come up quickly and play a sound to make it sound like the character is talking. While I have not implemented that sound yet, (or many sounds for that matter) I do have the text becoming visible over time. If you press Enter it automatically skips to the end of the text.
+</p>
+<p>The player's movement is disabled during these Dialogues.
+</p>
+
+<h2>Map:</h2>
+<p>UI is hard... don't judge the map too hard. It needs some love.</p>
+
+<div class="video-container"><iframe allowfullscreen="" frameborder="0" src="//www.youtube.com/embed/zDJW9N-5uGM" height="281" width="500"></iframe><br></div>
+
+<h2>Environmental Events:</h2>
+<p>This again loops back to zone states. This works almost exactly like locked doors. I have a fuse box that requires an EventItemID. Your inventory is checked for that event item when the the fuse box is interacted with, or you can use the item directly from your inventory. If you have the fuse it is consumed and that stores lights turn back on. This is an event that gets saved just like zone states and is checked when you enter areas in the store. If the fuse event hasn't been triggered then all lights are disabled.&nbsp;</p>
+<h2>Final Thoughts:</h2>
+<p>This is already getting to be a bit longer than I intended. There's more to show and more features to be developed!&nbsp;</p>
+<p>I would love to dive a bit deeper into some of the systems and show the actual code so if anyone is curious about any specific part of the project let me know! It may influence where I go with the next post and potentially dev logs on youtube!</p>
+
+</div>
+</body>
+</html>
